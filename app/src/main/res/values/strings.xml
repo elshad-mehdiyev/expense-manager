@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Expense manager</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Month  names -->
+    <string name="january">january</string>
+    <string name="february">february</string>
+    <string name="mart">mart</string>
+    <string name="april">april</string>
+    <string name="may">may</string>
+    <string name="june">june</string>
+    <string name="july">july</string>
+    <string name="august">august</string>
+    <string name="september">september</string>
+    <string name="october">october</string>
+    <string name="november">november</string>
+    <string name="december">december</string>
+    <!-- Category   names-->
+    <string name="Grocery">Grocery</string>
+    <string name="restaurant">Restaurant</string>
+    <string name="mobile_phone">Mobile Phone</string>
+    <string name="internet">Internet</string>
+    <string name="fuel">Fuel</string>
+    <string name="my_car">My Car</string>
+    <string name="family">Family</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="doctor">Doctor</string>
+    <string name="medicine">Medicine</string>
+    <string name="house">House</string>
+    <string name="travel">Travel</string>
+    <string name="sport">Sport</string>
+    <string name="public_transport">Public Transport</string>
+    <string name="what_I_bought">What I bought</string>
+    <string name="education">Education</string>
+    <string name="gift">Gift</string>
+    <string name="add">Add</string>
+    <string name="own_business">Own Business</string>
+    <string name="salary">Salary</string>
+    <string name="repayable_debt">Repayable debt</string>
+    <string name="category_name">Category name</string>
+</resources>

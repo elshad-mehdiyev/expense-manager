@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainScreen">
+
+    <fragment
+        android:id="@+id/mainScreen"
+        android:name="com.expense.expensemanager.ui.MainScreen"
+        android:label="fragment_main_screen"
+        tools:layout="@layout/fragment_main_screen" >
+        <action
+            android:id="@+id/action_mainScreen_to_createExpense"
+            app:destination="@id/createExpense" />
+        <action
+            android:id="@+id/action_mainScreen_to_createIncome"
+            app:destination="@id/createIncome" />
+        <action
+            android:id="@+id/action_mainScreen_to_expensesPage"
+            app:destination="@id/expensesPage" />
+        <action
+            android:id="@+id/action_mainScreen_to_incomePage"
+            app:destination="@id/incomePage" />
+        <action
+            android:id="@+id/action_mainScreen_to_historyPage"
+            app:destination="@id/historyPage" />
+        <action
+            android:id="@+id/action_mainScreen_to_notificationPage"
+            app:destination="@id/notificationPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/createExpense"
+        android:name="com.expense.expensemanager.ui.CreateExpense"
+        android:label="fragment_create_expense"
+        tools:layout="@layout/fragment_create_expense" >
+        <action
+            android:id="@+id/action_createExpense_to_mainScreen"
+            app:destination="@id/mainScreen"
+            app:popUpTo="@id/mainScreen"
+            app:popUpToInclusive="true"/>
+        <argument
+            android:name="image_path"
+            app:argType="integer"
+            android:defaultValue="1" />
+        <action
+            android:id="@+id/action_createExpense_to_categoryListDialogFragment"
+            app:destination="@id/categoryListDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createIncome"
+        android:name="com.expense.expensemanager.ui.CreateIncome"
+        android:label="CreateIncome" >
+        <action
+            android:id="@+id/action_createIncome_to_mainScreen"
+            app:destination="@id/mainScreen"/>
+        <argument
+            android:name="image_path_income"
+            app:argType="integer"
+            android:defaultValue="1" />
+        <action
+            android:id="@+id/action_createIncome_to_categoryListDialogFragment"
+            app:destination="@id/categoryListDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/expensesPage"
+        android:name="com.expense.expensemanager.ui.ExpensesPage"
+        android:label="fragment_expenses_page"
+        tools:layout="@layout/fragment_expenses_page" >
+        <action
+            android:id="@+id/action_expensesPage_to_mainScreen"
+            app:destination="@id/mainScreen"
+            app:popUpTo="@id/mainScreen"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/incomePage"
+        android:name="com.expense.expensemanager.ui.IncomePage"
+        android:label="fragment_income_page"
+        tools:layout="@layout/fragment_income_page" >
+        <action
+            android:id="@+id/action_incomePage_to_mainScreen"
+            app:destination="@id/mainScreen"
+            app:popUpTo="@id/mainScreen"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/historyPage"
+        android:name="com.expense.expensemanager.ui.HistoryPage"
+        android:label="fragment_history_page"
+        tools:layout="@layout/fragment_history_page" >
+        <action
+            android:id="@+id/action_historyPage_to_mainScreen"
+            app:destination="@id/mainScreen"
+            app:popUpTo="@id/mainScreen"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/notificationPage"
+        android:name="com.expense.expensemanager.ui.NotificationPage"
+        android:label="fragment_notification_page"
+        tools:layout="@layout/fragment_notification_page" >
+        <action
+            android:id="@+id/action_notificationPage_to_mainScreen"
+            app:destination="@id/mainScreen"
+            app:popUpTo="@id/mainScreen"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <dialog
+        android:id="@+id/categoryListDialogFragment"
+        android:name="com.expense.expensemanager.ui.CategoryListDialogFragment"
+        android:label="fragment_item_list_dialog_list_dialog"
+        tools:layout="@layout/fragment_item_list_dialog_list_dialog" >
+        <action
+            android:id="@+id/action_categoryListDialogFragment_to_createExpense"
+            app:destination="@id/createExpense" />
+        <action
+            android:id="@+id/action_categoryListDialogFragment_to_expensesPage"
+            app:destination="@id/expensesPage" />
+        <action
+            android:id="@+id/action_categoryListDialogFragment_to_createCategoryListDialogFragment"
+            app:destination="@id/createCategoryListDialogFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/createCategoryListDialogFragment"
+        android:name="com.expense.expensemanager.ui.CreateCategoryListDialogFragment"
+        android:label="fragment_create_category_list_dialog"
+        tools:layout="@layout/fragment_create_category_list_dialog" >
+        <action
+            android:id="@+id/action_createCategoryListDialogFragment_to_categoryListDialogFragment"
+            app:destination="@id/categoryListDialogFragment" />
+        <argument
+            android:name="select_id"
+            app:argType="integer" />
+    </dialog>
+</navigation>
