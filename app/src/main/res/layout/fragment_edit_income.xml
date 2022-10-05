@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/income_background"
+    tools:context=".ui.CreateExpense">
+
+    <LinearLayout
+        android:id="@+id/linearLayout_edit_income"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back_from_income_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/back_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pt_serif_regular"
+            android:gravity="center"
+            android:text="Update"
+            android:textColor="@color/text_color"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_category_background"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_edit_income"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/rounded_expense_text_background"
+            android:fontFamily="@font/pt_serif_regular"
+            android:gravity="center"
+            android:text="Amount"
+            android:textAllCaps="false"
+            android:textColor="@color/text_color"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/income_amount_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/rounded_category_background"
+            android:ems="10"
+            android:elevation="8dp"
+            android:fontFamily="@font/pt_serif_regular"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:textColor="@color/text_color"
+            android:textColorHint="?android:attr/textColorHintInverse"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/rounded_expense_text_background"
+            android:fontFamily="@font/pt_serif_regular"
+            android:gravity="center"
+            android:text="Date"
+            android:textColor="@color/text_color"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/date_picker_edit_income"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_category_background"
+            android:fontFamily="@font/pt_serif_regular"
+            android:gravity="center"
+            android:elevation="8dp"
+            android:minHeight="48dp"
+            android:textColor="@color/text_color"
+            android:textColorHint="?android:attr/textColorHintInverse"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/rounded_expense_text_background"
+            android:fontFamily="@font/pt_serif_regular"
+            android:gravity="center"
+            android:text="Assign"
+            android:textColor="@color/text_color"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/income_assign_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_category_background"
+            android:ems="10"
+            android:elevation="8dp"
+            android:fontFamily="@font/pt_serif_regular"
+            android:gravity="center"
+            android:hint="e.g  buy car"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColor="@color/text_color"
+            android:textColorHint="?android:attr/textColorHintInverse"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/updateIncome"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="75dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/expense_ready_background"
+            android:text="Update"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

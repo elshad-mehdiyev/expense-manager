@@ -37,9 +37,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:background="@drawable/circle_background_text"
-            android:padding="3dp"
-            android:src="@drawable/previous_month" />
+            android:paddingStart="8dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="3dp"
+            android:background="@drawable/ripple_effect"
+            android:src="@drawable/previous_month1" />
 
         <TextView
             android:id="@+id/income_month"
@@ -49,8 +52,9 @@
             android:layout_weight="1"
             android:fontFamily="@font/pt_serif_regular"
             android:gravity="center"
-            android:text=""
-            android:textColor="@color/text_color"
+            android:text="month"
+            android:textColor="@color/main_screen_background"
+            android:textColorLink="@color/main_screen_background"
             android:textSize="16sp" />
 
         <ImageView
@@ -58,9 +62,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:background="@drawable/circle_background_text"
-            android:padding="3dp"
-            android:src="@drawable/next_month" />
+            android:paddingStart="8dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="3dp"
+            android:background="@drawable/ripple_effect"
+            android:src="@drawable/next_month1" />
 
     </LinearLayout>
 

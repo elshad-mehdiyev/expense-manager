@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:fontFamily="@font/pt_serif_regular"
-            android:text="@{expenseByCategory.expenseSumByCategory.toString()}"
+            android:text="100"
             android:textColor="@color/minus_amount"
             android:textSize="24sp" />
     </LinearLayout>

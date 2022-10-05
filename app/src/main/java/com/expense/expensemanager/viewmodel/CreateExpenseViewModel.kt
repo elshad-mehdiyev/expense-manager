@@ -27,7 +27,7 @@ class CreateExpenseViewModel @Inject constructor(
         _insertMessage = MutableLiveData<Resource<ExpenseModel>>()
     }
     fun saveExpense(amount: String, assign: String, date: String,
-                    iconPath: Int? = null, category: String) {
+                    iconPath: Int? = null, category: String, incomeByCategory: Double? = null) {
         if (amount.isEmpty()) {
             _insertMessage.postValue(Resource.error("Enter  amount",null))
             return
@@ -40,8 +40,9 @@ class CreateExpenseViewModel @Inject constructor(
         }
         val month = date.split("/").toTypedArray()[0]
         val expenseModel = ExpenseModel(assign = assign, expense = amountToDouble, date = date,
-            month = month, iconPath = iconPath, category = category)
+            month = month, iconPath = iconPath, category = category, income = null)
         insertToDb(expenseModel)
+        updateExpenseByCategory(amountToDouble, incomeByCategory, category)
         _insertMessage.postValue(Resource.success(expenseModel))
     }
     private fun insertToDb(expenseModel: ExpenseModel) {
@@ -49,18 +50,8 @@ class CreateExpenseViewModel @Inject constructor(
             repo.insertData(expenseModel)
         }
     }
-    fun updateExpense(category: String,expenseByCategory: String) {
-        if (expenseByCategory.isEmpty()) {
-            return
-        }
-        val amountToDouble = try {
-            -BigDecimal(expenseByCategory.toDouble()).setScale(2, RoundingMode.HALF_EVEN).toDouble()
-        } catch (e: Exception) {
-            _insertMessage.postValue(Resource.error("enter  valid  amount", null))
-            return
-        }
-        viewModelScope.launch {
-            repo.updateExpenseByCategory(category,amountToDouble)
-        }
+    private fun updateExpenseByCategory(expenseCategory: Double?, incomeByCategory: Double?,
+                                category: String) = viewModelScope.launch {
+        repo.updateByCategory(expenseCategory, incomeByCategory, category)
     }
 }

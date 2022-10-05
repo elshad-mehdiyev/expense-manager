@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/history_background"
     tools:context=".ui.ExpensesPage">
-
-
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="200dp"
@@ -24,20 +22,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:background="@drawable/circle_background_text"
-            android:padding="3dp"
-            android:src="@drawable/previous_month" />
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="3dp"
+            android:background="@drawable/ripple_effect"
+            android:src="@drawable/previous_month1" />
 
         <TextView
             android:id="@+id/expense_month_history"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:fontFamily="@font/pt_serif_regular"
             android:gravity="center"
             android:text="month"
-            android:textColor="@color/text_color"
+            android:textColor="@color/main_screen_background"
             android:textSize="16sp" />
 
         <ImageView
@@ -45,9 +46,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:background="@drawable/circle_background_text"
-            android:padding="3dp"
-            android:src="@drawable/next_month" />
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="3dp"
+            android:background="@drawable/ripple_effect"
+            android:src="@drawable/next_month1" />
 
     </LinearLayout>
 
@@ -64,7 +68,7 @@
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pieChart"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="350dp"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -114,6 +118,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
         app:tabIndicator="@drawable/rounded_expense_page_backgrounds"
         app:tabIndicatorColor="@color/sea"
+        app:tabIndicatorFullWidth="true"
         app:tabIndicatorGravity="stretch"
         app:tabTextColor="@color/text_color">
 

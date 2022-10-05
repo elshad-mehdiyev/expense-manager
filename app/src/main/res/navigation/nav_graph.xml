@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_mainScreen_to_notificationPage"
             app:destination="@id/notificationPage" />
+        <action
+            android:id="@+id/action_mainScreen_to_savingPage"
+            app:destination="@id/savingPage" />
     </fragment>
     <fragment
         android:id="@+id/createExpense"
@@ -72,6 +75,9 @@
             app:destination="@id/mainScreen"
             app:popUpTo="@id/mainScreen"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_expensesPage_to_editExpense"
+            app:destination="@id/editExpense" />
     </fragment>
     <fragment
         android:id="@+id/incomePage"
@@ -83,6 +89,9 @@
             app:destination="@id/mainScreen"
             app:popUpTo="@id/mainScreen"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_incomePage_to_editIncome"
+            app:destination="@id/editIncome" />
     </fragment>
     <fragment
         android:id="@+id/historyPage"
@@ -133,4 +142,53 @@
             android:name="select_id"
             app:argType="integer" />
     </dialog>
+    <fragment
+        android:id="@+id/savingPage"
+        android:name="com.expense.expensemanager.ui.SavingPage"
+        android:label="fragment_saving_page"
+        tools:layout="@layout/fragment_saving_page" >
+        <action
+            android:id="@+id/action_savingPage_to_mainScreen"
+            app:destination="@id/mainScreen"
+            app:popUpTo="@id/mainScreen"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_savingPage_to_createSavingSheetFragment"
+            app:destination="@id/createSavingSheetFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/createSavingSheetFragment"
+        android:name="com.expense.expensemanager.ui.CreateSavingSheetFragment"
+        android:label="fragment_create_saving"
+        tools:layout="@layout/fragment_create_saving" >
+        <action
+            android:id="@+id/action_createSavingSheetFragment_to_savingPage"
+            app:destination="@id/savingPage" />
+    </dialog>
+    <fragment
+        android:id="@+id/editExpense"
+        android:name="com.expense.expensemanager.ui.EditExpense"
+        android:label="EditExpense" >
+        <argument
+            android:name="selectedExpense"
+            app:argType="com.expense.expensemanager.model.ExpenseModel" />
+        <action
+            android:id="@+id/action_editExpense_to_expensesPage"
+            app:destination="@id/expensesPage"
+            app:popUpTo="@id/expensesPage"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/editIncome"
+        android:name="com.expense.expensemanager.ui.EditIncome"
+        android:label="EditIncome" >
+        <action
+            android:id="@+id/action_editIncome_to_incomePage"
+            app:destination="@id/incomePage"
+            app:popUpTo="@id/incomePage"
+            app:popUpToInclusive="true"/>
+        <argument
+            android:name="selectedExpense"
+            app:argType="com.expense.expensemanager.model.ExpenseModel" />
+    </fragment>
 </navigation>

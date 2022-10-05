@@ -6,11 +6,14 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.expense.expensemanager.R
 import com.expense.expensemanager.adapter.ExpenseAdapter
 import com.expense.expensemanager.databinding.FragmentExpensesPageBinding
 import com.expense.expensemanager.viewmodel.ExpensesPageViewModel
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
@@ -43,13 +46,17 @@ class ExpensesPage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.showExpenseDataMonthly(selectedMonth)
-        observe()
+        deleteExpenseItem()
         binding.expenseMonth.text = getString(list[default])
         buttonClicker()
         binding.recyclerExpense.layoutManager = LinearLayoutManager(context)
         binding.recyclerExpense.adapter = expenseAdapter
         binding.expenseBack.setOnClickListener {
             val action = ExpensesPageDirections.actionExpensesPageToMainScreen()
+            findNavController().navigate(action)
+        }
+        expenseAdapter.setOnClickListener {
+            val action = ExpensesPageDirections.actionExpensesPageToEditExpense(it)
             findNavController().navigate(action)
         }
     }
@@ -64,19 +71,17 @@ class ExpensesPage : Fragment() {
             }
         }
     }
-    /**
-     * Previous  and  next button  for  month  change
-     */
+
     private fun buttonClicker() {
         binding.previousMonthExpense.setOnClickListener {
-            binding.expenseMonth.text = getString(list[default])
-            selectedMonth = if (default < 10) "0" + (default + 2) else (default+2).toString()
-            viewModel.showExpenseDataMonthly(selectedMonth)
-            observe()
             default--
             if (default < 0) {
                 default = 0
             }
+            binding.expenseMonth.text = getString(list[default])
+            selectedMonth = if (default < 10) "0" + (default + 2) else (default+2).toString()
+            viewModel.showExpenseDataMonthly(selectedMonth)
+            observe()
         }
         binding.nextMonthExpense.setOnClickListener {
             if (default< Calendar.getInstance().get(Calendar.MONTH)) {
@@ -90,6 +95,36 @@ class ExpensesPage : Fragment() {
         }
     }
 
+    private fun deleteExpenseItem() {
+        val itemTouchHelper = object: ItemTouchHelper.SimpleCallback(
+            ItemTouchHelper.UP or ItemTouchHelper.DOWN,
+            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+        ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.bindingAdapterPosition
+                val expense = expenseAdapter.expenseList[position]
+                viewModel.deleteExpenseItem(expense)
+                Snackbar.make(requireView(),"Succesfully  delete  item",Snackbar.LENGTH_LONG).apply {
+                    setAction("undo") {
+                        viewModel.saveExpenseItem(expense)
+                    }
+                }.show()
+            }
+        }
+
+        ItemTouchHelper(itemTouchHelper).apply {
+            attachToRecyclerView(binding.recyclerExpense)
+        }
+        observe()
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

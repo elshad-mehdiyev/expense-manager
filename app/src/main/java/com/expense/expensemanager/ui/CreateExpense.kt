@@ -22,6 +22,7 @@ class CreateExpense : Fragment() {
     private var calendar = Calendar.getInstance()
     private val viewModel: CreateExpenseViewModel by viewModels()
     private val binding get() = _binding!!
+    private var idDb = 0
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -59,13 +60,13 @@ class CreateExpense : Fragment() {
                 calendar.get(Calendar.DAY_OF_MONTH)).show()
         }
             binding.readyExpense.setOnClickListener {
+                idDb++
                 viewModel.saveExpense(
                     amount = binding.expenseAmount.text.toString(),
                     assign = binding.expenseAssign.text.toString(),
                     date = binding.datePicker.text.toString(),
                     iconPath = path,
                     category = categoryName)
-                    viewModel.updateExpense(categoryName,binding.expenseAmount.text.toString())
             }
     }
 
@@ -89,7 +90,6 @@ class CreateExpense : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 
     private val dateListener = DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
                 calendar.set(Calendar.YEAR, year)

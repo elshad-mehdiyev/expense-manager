@@ -24,4 +24,7 @@
     <color name="month_back">#B7D3DF</color>
     <color name="minus_amount">#F94C66</color>
     <color name="plus_amount">#53BF9D</color>
+    <color name="saving_bank">#FF99CB</color>
+    <color name="saving_bank_coin">#FCD116</color>
+    <color name="saving_bank_money_icon">#AC4D7D</color>
 </resources>

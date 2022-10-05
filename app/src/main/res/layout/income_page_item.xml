@@ -6,6 +6,7 @@
             type="com.expense.expensemanager.model.ExpenseModel" />
     </data>
     <LinearLayout
+        android:id="@+id/income_item_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"

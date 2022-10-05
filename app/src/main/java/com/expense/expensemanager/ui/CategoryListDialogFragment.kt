@@ -61,12 +61,12 @@ class CategoryListDialogFragment : BottomSheetDialogFragment() {
                     adapter.expenseCategoryList = it.reversed()
                 }
             }
-            adapter.setOnItemClickListener {
+            adapter.setOnItemClickListener { model ->
                 val bundle = Bundle()
                 bundle.putString("expenseAmount",expenseAmount)
-                it.imagePath?.let { it1 -> bundle.putInt("path", it1) }
-                it.categoryName?.let { it1 ->  bundle.putString("categoryName", it1)}
-                findNavController().navigate(R.id.createExpense,bundle)
+                model.imagePath?.let { it1 -> bundle.putInt("path", it1) }
+                model.categoryName?.let { it1 ->  bundle.putString("categoryName", it1)}
+                findNavController().navigate(R.id.createExpense, bundle)
                 dismiss()
             }
         } else if (selector == 2) {
@@ -79,11 +79,11 @@ class CategoryListDialogFragment : BottomSheetDialogFragment() {
                     incomeCategoryAdapter.incomeCategoryList = it.reversed()
                 }
             }
-            incomeCategoryAdapter.setOnItemClickListener {
+            incomeCategoryAdapter.setOnItemClickListener { model ->
                 val bundle = Bundle()
                 bundle.putString("incomeAmount",incomeAmount)
-                it.imagePath?.let { it1 -> bundle.putInt("path", it1) }
-                it.incomeCategoryName?.let { it1 ->  bundle.putString("IncomeCategoryName", it1)}
+                model.imagePath?.let { it1 -> bundle.putInt("path", it1) }
+                model.incomeCategoryName?.let { it1 ->  bundle.putString("IncomeCategoryName", it1)}
                 findNavController().navigate(R.id.createIncome,bundle)
                 dismiss()
             }
@@ -98,12 +98,24 @@ class CategoryListDialogFragment : BottomSheetDialogFragment() {
 
     private fun listOfCategory() : List<CategoryModel> {
         return listOf(
-            CategoryModel(categoryName = getString(R.string.add), imagePath = R.drawable.category_add)
+            CategoryModel(categoryName = getString(R.string.doctor), imagePath = R.drawable.category_doctor),
+            CategoryModel(categoryName = getString(R.string.education), imagePath = R.drawable.category_education),
+            CategoryModel(categoryName = getString(R.string.entertainment), imagePath = R.drawable.category_entertainment),
+            CategoryModel(categoryName = getString(R.string.family), imagePath = R.drawable.category_family),
+            CategoryModel(categoryName = getString(R.string.gift), imagePath = R.drawable.category_gift),
+            CategoryModel(categoryName = getString(R.string.public_transport), imagePath = R.drawable.category_public_transport),
+            CategoryModel(categoryName = getString(R.string.restaurant), imagePath = R.drawable.category_restaurant),
+            CategoryModel(categoryName = getString(R.string.communal), imagePath = R.drawable.category_communal),
+            CategoryModel(categoryName = getString(R.string.sport), imagePath = R.drawable.category_workout),
+            CategoryModel(categoryName = getString(R.string.other), imagePath = R.drawable.category_other)
         )
     }
     private fun listOfCategoryIncome(): List<CategoryModel> {
         return listOf(
-            CategoryModel(incomeCategoryName = getString(R.string.add), imagePath = R.drawable.category_add)
+            CategoryModel(incomeCategoryName = getString(R.string.repayable_debt), imagePath = R.drawable.category_debt),
+            CategoryModel(incomeCategoryName = getString(R.string.own_business), imagePath = R.drawable.category_own_business),
+            CategoryModel(incomeCategoryName = getString(R.string.salary), imagePath = R.drawable.category_salary),
+            CategoryModel(incomeCategoryName = getString(R.string.gift), imagePath = R.drawable.category_gift)
         )
     }
 

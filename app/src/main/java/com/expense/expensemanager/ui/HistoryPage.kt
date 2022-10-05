@@ -5,6 +5,7 @@ import android.view.*
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.expense.expensemanager.R
@@ -12,6 +13,7 @@ import com.expense.expensemanager.adapter.ExpenseByCategoryAdapter
 import com.expense.expensemanager.databinding.FragmentHistoryPageBinding
 import com.expense.expensemanager.viewmodel.HistoryPageViewModel
 import com.github.mikephil.charting.data.*
+import com.github.mikephil.charting.utils.ColorTemplate
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import kotlin.collections.ArrayList
@@ -44,11 +46,8 @@ class HistoryPage : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.showExpenseByCategoryMonthly(selectedMonth)
         observe()
-        createPie()
-        binding.expenseMonthHistory.text = getString(list[default])
-        buttonClicker()
+        //buttonClicker()
         binding.recyclerHistory.layoutManager = LinearLayoutManager(context)
         binding.recyclerHistory.adapter = expenseByCategoryAdapter
         binding.historyBack.setOnClickListener {
@@ -57,38 +56,54 @@ class HistoryPage : Fragment() {
         }
     }
     private fun observe() {
-        viewModel.expenseByCategoryMonthly.observe(viewLifecycleOwner) {
-            it?.let {
-                expenseByCategoryAdapter.expenseByCategoryList = it
+        lifecycleScope.launchWhenStarted {
+            viewModel.showAllData.observe(viewLifecycleOwner) {
+                it?.let {
+                    val categoryArray = Array(it.size) { "" }
+                    val expenseArray = Array(it.size) { 0f }
+                    var index = 0
+                    for (a in it) {
+                        if (a.expenseByCategory != null && a.category != null) {
+                            categoryArray[index] = a.category.toString()
+                            expenseArray[index] = a.expenseByCategory.toFloat()
+                            index++
+                        }
+                    }
+                    val map = categoryArray.reversed().zip(expenseArray.reversed()).toMap()
+
+                    val expenseList = mutableListOf<Float>()
+                    for (value in map.values) {
+                        expenseList.add(value)
+                    }
+                    val categoryList = mutableListOf<String>()
+                    for (key in map.keys) {
+                        categoryList.add(key)
+                    }
+                    populateBarChart(expenseList, categoryList)
+                }
             }
         }
     }
-    private fun createPie() {
 
-        //populatePieChart(listOfSum,listOfCategory)
-    }
-    private fun populatePieChart(value: List<Float>, label: List<String>) {
+    private fun populateBarChart(value: List<Float>, label: List<String>) {
         val list: ArrayList<PieEntry> = ArrayList()
         for (i in value.indices) {
-            val values = value[i]
+            val values = -value[i]
             val labels = label[i]
             list.add(PieEntry(values, labels))
         }
-        list.add(PieEntry(6.5f, "da"))
-        val dataSet = PieDataSet(list, "selection")
-        val colors: ArrayList<Int> = ArrayList()
-        colors.add(ContextCompat.getColor(requireContext(),R.color.text_color))
-        colors.add(ContextCompat.getColor(requireContext(),R.color.check))
-        colors.add(ContextCompat.getColor(requireContext(),R.color.decorative_background_2))
-        colors.add(ContextCompat.getColor(requireContext(),R.color.sea))
-        dataSet.colors = colors
+        val dataSet = PieDataSet(list, "")
+        dataSet.valueTextSize = 15f
+        dataSet.setColors(*ColorTemplate.JOYFUL_COLORS)
         val data = PieData(dataSet)
         binding.pieChart.data = data
+        binding.pieChart.centerText = "Expenses"
+        binding.pieChart.setCenterTextSize(18f)
+        binding.pieChart.description.isEnabled = false
         binding.pieChart.animateY(1000)
-        binding.pieChart.highlightValues(null)
         binding.pieChart.invalidate()
     }
-    private fun buttonClicker() {
+  /* private fun buttonClicker() {
         binding.previousMonthExpense.setOnClickListener {
             binding.expenseMonthHistory.text = getString(list[default])
             selectedMonth = if (default < 10) "0" + (default + 2) else (default+2).toString()
@@ -110,7 +125,7 @@ class HistoryPage : Fragment() {
             }
         }
     }
-
+*/
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

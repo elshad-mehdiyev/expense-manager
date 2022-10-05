@@ -39,7 +39,7 @@ class CreateIncomeViewModel @Inject constructor(
         }
         val month = date.split("/").toTypedArray()[0]
         val expenseModel = ExpenseModel(assign = assign, income = amountToDouble,
-            date = date, month = month, iconPath = iconPath, category = category)
+            date = date, month = month, iconPath = iconPath, category = category, expense = null)
         insertToDb(expenseModel)
         _insertMessage.postValue(Resource.success(expenseModel))
     }

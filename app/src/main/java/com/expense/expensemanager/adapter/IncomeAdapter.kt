@@ -25,6 +25,13 @@ class IncomeAdapter: RecyclerView.Adapter<IncomeAdapter.IncomeHolder>() {
     var incomeList: List<ExpenseModel>
     get() = list.currentList
     set(value) = list.submitList(value)
+
+    private var onItemClickListener: ((ExpenseModel) -> Unit)? = null
+
+    fun setOnClickListener(listener: (ExpenseModel) -> Unit) {
+        onItemClickListener = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IncomeHolder {
         val binding = IncomePageItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return IncomeHolder(binding)
@@ -32,6 +39,11 @@ class IncomeAdapter: RecyclerView.Adapter<IncomeAdapter.IncomeHolder>() {
 
     override fun onBindViewHolder(holder: IncomeHolder, position: Int) {
         holder.binding.income = incomeList[position]
+        holder.binding.incomeItemLayout.setOnClickListener {
+            onItemClickListener?.let {
+                it(incomeList[position])
+            }
+        }
     }
 
     override fun getItemCount(): Int {

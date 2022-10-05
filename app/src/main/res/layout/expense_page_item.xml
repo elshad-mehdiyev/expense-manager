@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <variable
             name="expense"
             type="com.expense.expensemanager.model.ExpenseModel" />
     </data>
 <LinearLayout
+    android:id="@+id/expense_item_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="30dp"
@@ -19,6 +21,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_margin="20dp"
+        android:background="@drawable/rounded_background_expense"
         android:setImage="@{expense.iconPath}" />
 
     <LinearLayout
@@ -46,13 +49,13 @@
             android:textSize="16sp" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:fontFamily="@font/pt_serif_regular"
-        android:text="@{expense.expense.toString()}"
-        android:textColor="@color/minus_amount"
-        android:textSize="24sp" />
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/pt_serif_regular"
+            android:text="@{expense.expense.toString()}"
+            android:textColor="@color/minus_amount"
+            android:textSize="24sp" />
+    </LinearLayout>
 </layout>

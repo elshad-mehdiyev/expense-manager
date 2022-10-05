@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/list_item_spacing_half"
+    android:paddingBottom="@dimen/list_item_spacing_half"
+    tools:context=".ui.CreateSavingSheetFragment">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/selectImage"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/ic_launcher_background"
+        android:src="@drawable/saving_add_image" />
+
+    <EditText
+        android:id="@+id/goalName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:hint="Goal name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/goalAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:hint="Goal amount"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/goalNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:hint="Goal note"
+        android:inputType="textPersonName" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/createSavingGoalButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Create" />
+
+</LinearLayout>

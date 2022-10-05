@@ -1,16 +1,23 @@
 package com.expense.expensemanager.ui
 
+import android.app.Dialog
+import android.os.Build
 import android.os.Bundle
 import android.view.*
+import androidx.core.view.WindowCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.expense.expensemanager.adapter.CategoryAdapter
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.expense.expensemanager.databinding.FragmentCreateCategoryListDialogBinding
 import com.expense.expensemanager.model.CategoryModel
 import com.expense.expensemanager.viewmodel.CreateCategoryListViewModel
+import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class CreateCategoryListDialogFragment : BottomSheetDialogFragment() {
@@ -24,16 +31,13 @@ class CreateCategoryListDialogFragment : BottomSheetDialogFragment() {
     private var categoryName: String? = null
     private var categoryModel: CategoryModel? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
-        _binding = FragmentCreateCategoryListDialogBinding.inflate(inflater, container, false)
+        _binding = FragmentCreateCategoryListDialogBinding.inflate(inflater,container,false)
         return binding.root
     }
 
@@ -41,6 +45,7 @@ class CreateCategoryListDialogFragment : BottomSheetDialogFragment() {
         selectId = args.selectId
         binding.recyclerView.layoutManager = GridLayoutManager(context,3)
         observe()
+        setAdjustResize()
         adapter.setOnItemClickListener {
             imagePath = it.categoryImagePath
         }
@@ -59,7 +64,15 @@ class CreateCategoryListDialogFragment : BottomSheetDialogFragment() {
             binding.recyclerView.adapter = adapter
             adapter.categoryList = viewModel.createCategoryImageForIncome
         }
-}
+    }
+    private fun setAdjustResize() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            requireDialog().window?.let { WindowCompat.setDecorFitsSystemWindows(it, false) }
+        } else {
+            @Suppress("DEPRECATION")
+            requireDialog().window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+        }
+    }
     private fun createNewCategory() {
         categoryName = binding.categoryName.text.toString()
         if (selectId == 1) {

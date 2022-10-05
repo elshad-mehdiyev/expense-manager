@@ -38,6 +38,7 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/history_decorative_uber.xml" value="0.179" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/history_decorative_upwork.xml" value="0.179" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/ic_add_fill0_wght200_grad0_opsz40.xml" value="0.2055" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1865" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/ic_logo.xml" value="0.179" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/income_decorative_background.xml" value="0.179" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/income_decorative_manat.xml" value="0.179" />
@@ -45,8 +46,11 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/manat_icon.xml" value="0.179" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/more_icon.xml" value="0.179" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/next_month.xml" value="0.179" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/next_month1.xml" value="0.1865" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/previous_month.xml" value="0.179" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/previous_month1.xml" value="0.1865" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/profile_icon.xml" value="0.179" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/ripple_effect.xml" value="0.1865" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/rounded_backdround_income.xml" value="0.2055" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/rounded_background_expense.xml" value="0.188" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/rounded_background_history.xml" value="0.188" />
@@ -55,11 +59,23 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/rounded_expense_page_backgrounds.xml" value="0.179" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/rounded_expense_text_background.xml" value="0.179" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/rounded_profile_background.xml" value="0.179" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/saving_add.xml" value="0.1865" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/saving_bank.xml" value="0.179" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/saving_bank_amount.xml" value="0.179" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/saving_bank_dollar.xml" value="0.1865" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/saving_bank_manat.xml" value="0.1865" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/saving_bank_new.xml" value="0.1865" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/saving_bank_sterling.xml" value="0.1865" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/saving_bank_turkish_lira.xml" value="0.1865" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/saving_bank_yuan.xml" value="0.1865" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/saving_minus.xml" value="0.1865" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/saving_remain_background.xml" value="0.1865" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/saving_split_for_goal_background.xml" value="0.1865" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/select_icon.xml" value="0.179" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/drawable/small_button_click_background.xml" value="0.1865" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/activity_main.xml" value="0.35052083333333334" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/category_item.xml" value="0.30315315315315317" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/create_saving_item.xml" value="0.2876068376068376" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/expense_by_category_item.xml" value="0.24931693989071038" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/expense_category_item.xml" value="0.2876068376068376" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/expense_page_item.xml" value="0.2346311475409836" />
@@ -68,15 +84,22 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_create_category_list_dialog_item.xml" value="0.2876068376068376" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_create_expense.xml" value="0.2346311475409836" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_create_income.xml" value="0.25" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_create_saving.xml" value="0.2876068376068376" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_create_saving_item.xml" value="0.2876068376068376" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_edit_expense.xml" value="0.2876068376068376" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_edit_income.xml" value="0.2876068376068376" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_expenses_page.xml" value="0.33" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_history_page.xml" value="0.24931693989071038" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_history_page.xml" value="0.33" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_income_page.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_item_list_dialog_list_dialog.xml" value="0.22" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_item_list_dialog_list_dialog_item.xml" value="0.1" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_item_list_dialog_list_dialog_item.xml" value="0.25" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_main_screen.xml" value="0.25" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_main_sliding.xml" value="0.1" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_notification_page.xml" value="0.25" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/fragment_saving_page.xml" value="0.2876068376068376" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/income_category_item.xml" value="0.30315315315315317" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/income_page_item.xml" value="0.11047297297297297" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/layout/notification_item.xml" value="0.24931693989071038" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.179" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Expensemanager/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.179" />
       </map>
